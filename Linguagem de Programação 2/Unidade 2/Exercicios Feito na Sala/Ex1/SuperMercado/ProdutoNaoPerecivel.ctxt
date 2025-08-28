@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=ProdutoNaoPerecivel
+comment1.params=codigo\ nome\ preco\ substancia
+comment1.target=ProdutoNaoPerecivel(int,\ java.lang.String,\ float,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getSubstancia()
+comment3.params=substancia
+comment3.target=void\ setSubstancia(java.lang.String)
+numComments=4

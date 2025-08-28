@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+
+int main(){
+    int num,i, resul;
+
+    printf("Digite o numero: ");
+    scanf("%d", &num);
+
+
+    for(i=1;i<=10;i++){
+
+        resul= num*i;
+        printf("%d x %d = %d\n", num,i, resul);
+    }
+
+
+}

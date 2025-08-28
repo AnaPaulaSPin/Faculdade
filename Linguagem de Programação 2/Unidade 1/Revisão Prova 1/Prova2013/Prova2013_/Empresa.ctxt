@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Empresa
+comment1.params=nome
+comment1.target=Empresa(java.lang.String)
+comment2.params=user
+comment2.target=boolean\ reduzConta(Usuario)
+comment3.params=
+comment3.target=java.lang.String\ maisUsers()
+comment4.params=
+comment4.target=java.lang.String\ getNome()
+comment5.params=nome
+comment5.target=void\ setNome(java.lang.String)
+comment6.params=
+comment6.target=java.util.ArrayList\ getUsers()
+comment7.params=user
+comment7.target=void\ addUsers(Usuario)
+comment8.params=
+comment8.target=java.util.ArrayList\ getApps()
+comment9.params=app
+comment9.target=void\ addApps(Aplicativo)
+numComments=10

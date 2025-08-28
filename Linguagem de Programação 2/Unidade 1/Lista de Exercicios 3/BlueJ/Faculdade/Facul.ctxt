@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Facul
+comment1.params=nome\ ano
+comment1.target=Facul(java.lang.String,\ int)
+comment10.params=curso1
+comment10.target=void\ addCursos(Curso)
+comment2.params=curso1
+comment2.target=void\ AdicionarCurso(Curso)
+comment3.params=curso
+comment3.target=void\ retirarCurso(java.lang.String)
+comment4.params=
+comment4.target=Facul\ novaFaculdade()
+comment5.params=
+comment5.target=java.lang.String\ getNome()
+comment6.params=nome
+comment6.target=void\ setNome(java.lang.String)
+comment7.params=
+comment7.target=int\ getAno()
+comment8.params=ano
+comment8.target=void\ setAno(int)
+comment9.params=
+comment9.target=java.util.ArrayList\ getCursos()
+numComments=11

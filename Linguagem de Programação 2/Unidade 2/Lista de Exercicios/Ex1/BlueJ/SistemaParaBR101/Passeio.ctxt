@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Passeio
+comment1.params=numPassageiros\ Placa\ ano
+comment1.target=Passeio(int,\ java.lang.String,\ int)
+comment2.params=
+comment2.target=float\ calcularPedagio()
+comment3.params=
+comment3.target=int\ getNumPassageiros()
+comment4.params=numPassageiros
+comment4.target=void\ setNumPassageiros(int)
+numComments=5

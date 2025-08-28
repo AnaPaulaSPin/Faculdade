@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Aluno
+comment0.text=\r\n\ Escreva\ uma\ descri\u00E7\u00E3o\ da\ classe\ Aluno\ aqui.\r\n\ \r\n\ @author\ (seu\ nome)\ \r\n\ @version\ (um\ n\u00FAmero\ da\ vers\u00E3o\ ou\ uma\ data)\r\n
+comment1.params=matricula\ nome\ anoIngresso\ curso
+comment1.target=Aluno(int,\ java.lang.String,\ int,\ java.lang.String)
+comment2.params=anoAtual
+comment2.target=int\ permanencia(int)
+comment3.params=quantDisc
+comment3.target=void\ informarDisc(int)
+comment4.params=
+comment4.target=float\ calcularMensalidade()
+numComments=5

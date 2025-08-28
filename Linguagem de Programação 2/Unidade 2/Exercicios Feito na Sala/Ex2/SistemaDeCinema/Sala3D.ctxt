@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Sala3D
+comment1.params=numero\ capacidade\ equipamento
+comment1.target=Sala3D(int,\ int,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getEquipamento()
+comment3.params=equipamento
+comment3.target=void\ setEquipamento(java.lang.String)
+numComments=4

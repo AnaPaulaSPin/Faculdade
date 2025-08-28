@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+
+int main(){
+    int num[100],i,j, soma;
+
+     
+    i=0;
+    while(num[i]!=0){
+      printf("Digite o numero: ");
+      scanf("%d", &num);
+      i++;
+    }
+    
+    j=i;
+
+    for(i=0;i<=j;i++){
+
+        resul= num*i;
+        printf("%d x %d = %d\n", num,i, resul);
+    }
+
+
+}

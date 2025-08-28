@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=ShoppingCenter
+comment1.params=nome
+comment1.target=ShoppingCenter(java.lang.String)
+comment2.params=
+comment2.target=void\ maiorFat()
+comment3.params=
+comment3.target=void\ verificarMediaAlugueis()
+comment4.params=
+comment4.target=java.lang.String\ getName()
+comment5.params=name
+comment5.target=void\ setName(java.lang.String)
+comment6.params=loj
+comment6.target=void\ addLoja(Loja)
+comment7.params=
+comment7.target=java.util.ArrayList\ getShop()
+numComments=8

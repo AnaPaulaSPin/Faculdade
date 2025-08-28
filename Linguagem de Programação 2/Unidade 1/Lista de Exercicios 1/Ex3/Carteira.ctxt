@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Carteira
+comment1.params=identNum\ cpf\ tipo\ datValidade\ datExpedicao
+comment1.target=Carteira(int,\ float,\ java.lang.String,\ int,\ int)
+comment2.params=
+comment2.target=void\ acrescentarPontos()
+comment3.params=
+comment3.target=void\ consultarPontos()
+comment4.params=
+comment4.target=void\ zerarCarteira()
+comment5.params=
+comment5.target=void\ apreenderCarteira()
+comment6.params=
+comment6.target=void\ verificatValidade()
+numComments=7

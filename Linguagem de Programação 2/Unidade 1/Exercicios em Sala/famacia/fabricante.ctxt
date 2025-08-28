@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=fabricante
+comment1.params=percLucro
+comment1.target=void\ setPercLucro(float)
+comment2.params=
+comment2.target=float\ getPercLucro()
+numComments=3

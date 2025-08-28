@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Passagem
+comment1.params=data\ hora\ valor
+comment1.target=Passagem(Data,\ java.lang.String,\ float)
+comment2.params=
+comment2.target=Data\ getData()
+comment3.params=data
+comment3.target=void\ setData(Data)
+comment4.params=
+comment4.target=java.lang.String\ getHora()
+comment5.params=hora
+comment5.target=void\ setHora(java.lang.String)
+numComments=6

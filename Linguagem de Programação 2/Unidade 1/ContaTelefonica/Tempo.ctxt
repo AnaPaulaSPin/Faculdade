@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Tempo
+comment1.params=hora\ minuto\ segundo
+comment1.target=Tempo(int,\ int,\ int)
+comment1.text=\r\n\ Construtor\ para\ objetos\ da\ classe\ Tempo\r\n
+comment2.params=hora\ minuto\ segundo
+comment2.target=int\ conversao(int,\ int,\ int)
+comment3.params=inicio\ fim
+comment3.target=int\ CalcDif(int,\ int)
+comment4.params=
+comment4.target=int\ getHora()
+comment5.params=hora
+comment5.target=void\ setHora(int)
+comment6.params=
+comment6.target=int\ getMinuto()
+comment7.params=minuto
+comment7.target=void\ setMinuto(int)
+comment8.params=
+comment8.target=int\ getSegundo()
+comment9.params=
+comment9.target=void\ setSegundo()
+numComments=10

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Livro
+comment1.params=nome\ autor\ edicao\ ano\ precoVenda
+comment1.target=void\ criarLivro(java.lang.String,\ java.lang.String,\ java.lang.String,\ int,\ double)
+comment2.params=
+comment2.target=void\ ImprimirLivro()
+comment3.params=percentual
+comment3.target=double\ calculaPreco(double)
+numComments=4
