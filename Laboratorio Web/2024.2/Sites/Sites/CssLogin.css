@@ -1,0 +1,46 @@
+html {
+  height: 100%;
+  width: 100%;
+  background-image:url("https://www.bhmpics.com/downloads/anime-wall-paper-Wallpapers/5.wp2771912.jpg") ;
+ 
+}
+
+
+
+body{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  font-family: Times New Roman, Times, serif;
+}
+
+.bord{
+  margin:10px;
+  border-color: blueviolet;
+  border-radius: 5px;
+  
+}
+
+h1{
+  margin:5px;
+  font-family: 'Brush Script MT', cursive;
+  font-size: 50px;
+}
+
+.fund{
+  width: 340px;
+  display: flex;
+  background:   rgba(36, 125, 192,0.5);
+}
+
+a{
+  color: black;
+}
+
+.fundoNeo{
+  margin: 10px;
+ background-color:rgb(103, 126, 173,0.6) ;
+
+}

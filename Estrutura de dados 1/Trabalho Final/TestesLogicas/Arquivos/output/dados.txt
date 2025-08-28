@@ -1,0 +1,5 @@
+50;Escolha 50;Resultado 50
+25;Escolha 25;Resultado 25
+55;Escolha teste;Resultado 55
+5;Escolha 5;Resultado 5
+30;Escolha 30;Resultado 30
