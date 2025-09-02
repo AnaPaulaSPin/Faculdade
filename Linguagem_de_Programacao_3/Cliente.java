@@ -1,5 +1,3 @@
-package com.mycompany.primeira_aula;
-
 import java.io.ObjectInputStream;
 import java.net.Socket;
 import java.util.Date;
