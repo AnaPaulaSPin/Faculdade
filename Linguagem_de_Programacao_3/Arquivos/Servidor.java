@@ -1,7 +1,7 @@
-import java.io.*;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Date;
 
 public class Servidor {
    public static void main(String[] args){
