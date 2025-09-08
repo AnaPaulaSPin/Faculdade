@@ -13,7 +13,7 @@ public class Servidor {
                 System.out.println("Cliente conectado: " + cliente.getInetAddress().getHostAddress());
 
                  // Recebe bytes do cliente
-                 InputStream in = cliente.getInputStream();
+                 InputStream byetesArq = cliente.getInputStream();
 
                 // Cria arquivo para salvar
                 FileOutputStream arquivoSaida = new FileOutputStream("arquivo_recebido.txt");
@@ -21,8 +21,8 @@ public class Servidor {
                 byte[] buffer = new byte[4096];
                 int bytesLidos;
                 
-                // Lê bytes até o fim do stream
-                while ((bytesLidos = in.read(buffer)) != -1) {
+                // Lê bytes até o fim do stream e escreve no novo arquivo:
+                while ((bytesLidos =  byetesArq.read(buffer)) != -1) {
                 arquivoSaida.write(buffer, 0, bytesLidos);
                  }
                 

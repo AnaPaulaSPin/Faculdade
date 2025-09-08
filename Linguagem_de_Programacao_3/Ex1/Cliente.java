@@ -1,11 +1,13 @@
-import java.io.*;
-import java.net.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.OutputStream;
+import java.net.Socket;
 
 
 
 public class Cliente {
     public static void main(String[] args) {
-        String caminhoArquivo = 'Caminho_arquivos'
+        String caminhoArquivo = "teste.txt";
 
         try {
             System.out.println("Tentando conectar ao servidor...");
