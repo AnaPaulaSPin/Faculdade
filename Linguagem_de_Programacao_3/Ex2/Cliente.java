@@ -1,9 +1,11 @@
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.nio.ByteBuffer;
 import javax.swing.JOptionPane;
 
-public class Cliente{
+public class Cliente {
     public static void main(String[] args) {
         if(args.length != 1){
             System.out.println("Informe a porta a ser ouvida");
@@ -16,12 +18,17 @@ public class Cliente{
 
             DatagramPacket pkg = new DatagramPacket(msg,msg.length);
             ds.receive(pkg);
-            JOptionPane.showMessageDialog(null, new String(pkg.getData()).trim(), "Mensagem recebida",1);
-            ds.close();
 
+            int resultado = ByteBuffer.wrap(pkg.getData()).getInt();
+
+            System.out.println("\nMensagem: " + resultado);
+
+            JOptionPane.showMessageDialog(null, resultado, "Mensagem recebida",1);
+            
+            ds.close();
 
         } catch(IOException ioe){
 
         }
-    }
+  }
 }
