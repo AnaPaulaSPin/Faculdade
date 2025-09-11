@@ -6,22 +6,33 @@ import java.nio.ByteBuffer;
 
 public class Servidor {
     public static void main(String[] var0) {
-      String operacoes = "+-/*";
-      if (var0.length != 5 || !operacoes.contains(var0[2])) {
-         System.out.println("Uso correto: <Operando1> <Operando2> <sinal(+-/*)> <porta> <NomeHost>");
-         System.exit(0);
-      } 
 
-      try {
-               InetAddress var1 = InetAddress.getByName(var0[4]);
+      while (true) { 
+          try {
+               // criar um ponto de conexão:
+               DatagramSocket socket = new DatagramSocket(1234);
+               // buffer que vai receber os dados
+               byte[] buffer = new byte[256];
+               //pacote com o buffer:
+               DatagramPacket PkgOperacao = new DatagramPacket(buffer,buffer.length);
+               socket.receive(PkgOperacao); // fica em estado de bloqueando esperando um pacote chegar.
+
+               //pedido chegou!
+               String operacao = new String(PkgOperacao.getData()).trim();
+               String[] listOperacao = operacao.split(";"); //Separar em um array as operações
 
 
-               int var2 = Integer.parseInt(var0[3]);
-               int op1 = Integer.parseInt(var0[0]);
-               int op2 = Integer.parseInt(var0[1]);
-               String sinal = var0[2];
+               //Separando e Atribuindo para cada integrante da operação:
+               // String para byte
+               int op1 = Integer.parseInt(listOperacao[0]); 
+               int op2 = Integer.parseInt(listOperacao[2]);
+               String sinal = listOperacao[1];
                int resultado = 0;
 
+               InetAddress ClienteAddr = PkgOperacao.getAddress();
+               int ClientePorta =  PkgOperacao.getPort();
+
+               //Identificar a operação e resolver:
                if(sinal.equals("+") ){
                   resultado = op1 + op2;
                } else if(sinal.equals("-")){
@@ -29,21 +40,26 @@ public class Servidor {
                } else if(sinal.equals("*")){
                   resultado = op1 * op2;
                } else if(sinal.equals("/")){
-                  resultado = op1 / op2;
+                  
+                  if(op2 == 0){
+                     System.err.println("Nao foi possivel fazer a divisão, o segundo operando é igual a 0!");
+                  } else{
+                     resultado = op1 / op2;
+                  }
                }
 
+               byte[] resultadoByte = ByteBuffer.allocate(4).putInt(resultado).array(); //int para byte
 
-               byte[] var3 = ByteBuffer.allocate(4).putInt(resultado).array(); //byte para int
+               DatagramPacket pacoteResultado = new DatagramPacket(resultadoByte, resultadoByte.length, ClienteAddr, ClientePorta);
                
+               socket.send(pacoteResultado);
 
-               DatagramPacket var4 = new DatagramPacket(var3, var3.length, var1, var2);
-               DatagramSocket var5 = new DatagramSocket();
-               var5.send(var4);
-
-               System.out.println("Mensagem enviada para " + var1.getHostAddress() + "\nPorta: " + var2 + "\nMensagem: " + resultado);
-               var5.close();
+               System.out.println("Mensagem enviada");
+               socket.close();
             } catch (IOException var6) {
                var6.printStackTrace();
             }
+      }
+   }
  }
-}
+
