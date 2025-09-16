@@ -3,10 +3,10 @@ public class Synchronized_2 {
 
     public static void main(String[] args) {
         MeuRunnable r = new MeuRunnable();
-        Thread t0 = new Thread();
-        Thread t1 = new Thread();
-        Thread t2 = new Thread();
-        Thread t3 = new Thread();
+        Thread t0 = new Thread(r);
+        Thread t1 = new Thread(r);
+        Thread t2 = new Thread(r);
+        Thread t3 = new Thread(r);
 
         t0.start();
         t1.start();
