@@ -35,6 +35,7 @@ public class Cliente {
             break;
         }
 
+
         try {
             DatagramSocket socket = new DatagramSocket();
 
