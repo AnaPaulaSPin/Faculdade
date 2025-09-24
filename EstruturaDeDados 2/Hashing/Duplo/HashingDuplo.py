@@ -40,6 +40,9 @@ while(1):
         print('Saindo do programa...')
         break
     
+    os.system("cls")
+
+
 
 
 
