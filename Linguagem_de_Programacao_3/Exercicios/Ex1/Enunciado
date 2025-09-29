@@ -6,5 +6,4 @@
 
    * Crie um `ExecutorService` com `newSingleThreadExecutor`.
    * Envie 5 tarefas que imprimam números de 1 a 5.
-   * Observe que rodam **em sequência**.
 ---
