@@ -1,0 +1,10 @@
+# 📝 Lista de Exercícios de Concorrência em Java
+
+## 🔹 Nível 1 — Conceitos básicos
+
+1. **Executor SingleThread**
+
+   * Crie um `ExecutorService` com `newSingleThreadExecutor`.
+   * Envie 5 tarefas que imprimam números de 1 a 5.
+   * Observe que rodam **em sequência**.
+---

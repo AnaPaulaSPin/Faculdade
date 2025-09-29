@@ -1,0 +1,6 @@
+## 🔹 Nível 2 — Controle de tarefas
+
+4. **invokeAll**
+
+   * Crie 5 `Callable` diferentes que fazem cálculos simples.
+   * Use `executor.invokeAll` e percorra a lista de `Future` para imprimir os resultados.

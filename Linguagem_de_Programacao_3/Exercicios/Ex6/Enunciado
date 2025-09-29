@@ -1,0 +1,8 @@
+## 🔹 Nível 3 — Sincronização
+
+6. **CountDownLatch** (largada de corrida)
+
+   * Crie 5 corredores (threads).
+   * Eles esperam um `CountDownLatch(1)`.
+   * Quando o juiz dá o sinal (`countDown()`), todos começam juntos.
+
