@@ -1,0 +1,9 @@
+## 🔹 Nível 4 — Estruturas de concorrência
+
+9. **LinkedBlockingQueue** (chat simples)
+
+   * Crie uma fila de mensagens.
+   * Várias threads enviam mensagens para a fila.
+   * Uma thread “servidor” consome e imprime as mensagens.
+
+---

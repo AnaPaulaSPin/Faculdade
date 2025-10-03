@@ -1,0 +1,11 @@
+## 🔹 Nível 4 — Estruturas de concorrência
+
+8. **BlockingQueue** (fila de pedidos)
+
+   * Crie uma `BlockingQueue`.
+   * Thread **produtora** insere pedidos a cada 1s.
+   * Thread **consumidora** retira pedidos e “processa”.
+   * Mostre o fluxo contínuo.
+
+
+---

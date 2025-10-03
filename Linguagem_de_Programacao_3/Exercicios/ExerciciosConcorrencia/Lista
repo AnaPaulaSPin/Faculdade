@@ -1,0 +1,81 @@
+# 📝 Lista de Exercícios de Concorrência em Java
+
+## 🔹 Nível 1 — Conceitos básicos
+
+1. **Executor SingleThread**
+
+   * Crie um `ExecutorService` com `newSingleThreadExecutor`.
+   * Envie 5 tarefas que imprimam números de 1 a 5.
+   * Observe que rodam **em sequência**.
+
+2. **Executor FixedThreadPool**
+
+   * Crie um pool fixo com 3 threads (`newFixedThreadPool(3)`).
+   * Envie 10 tarefas que imprimam o nome da thread + número da tarefa.
+   * Veja que agora rodam **em paralelo**.
+
+---
+
+## 🔹 Nível 2 — Controle de tarefas
+
+3. **Callable + Future**
+
+   * Crie tarefas que retornem a soma de 1 até N.
+   * Submeta várias tarefas e use `Future.get()` para pegar os resultados.
+   * Mostre a diferença entre **tarefa que retorna** e `Runnable`.
+
+4. **invokeAll**
+
+   * Crie 5 `Callable` diferentes que fazem cálculos simples.
+   * Use `executor.invokeAll` e percorra a lista de `Future` para imprimir os resultados.
+
+---
+
+## 🔹 Nível 3 — Sincronização
+
+5. **Semaphore** (estacionamento)
+
+   * Simule um estacionamento com **3 vagas** (semáforo = 3).
+   * Crie 10 carros (threads).
+   * Cada carro tenta “estacionar” (adquire vaga), espera 2s e depois sai (libera vaga).
+
+6. **CountDownLatch** (largada de corrida)
+
+   * Crie 5 corredores (threads).
+   * Eles esperam um `CountDownLatch(1)`.
+   * Quando o juiz dá o sinal (`countDown()`), todos começam juntos.
+
+7. **CyclicBarrier** (formar grupo)
+
+   * Crie 4 threads que precisam se reunir antes de começar a trabalhar.
+   * Use `CyclicBarrier(4)` para esperar todos.
+   * Quando o grupo fecha, imprimem: “Todos chegaram, vamos começar!”
+
+---
+
+## 🔹 Nível 4 — Estruturas de concorrência
+
+8. **BlockingQueue** (fila de pedidos)
+
+   * Crie uma `BlockingQueue`.
+   * Thread **produtora** insere pedidos a cada 1s.
+   * Thread **consumidora** retira pedidos e “processa”.
+   * Mostre o fluxo contínuo.
+
+9. **LinkedBlockingQueue** (chat simples)
+
+   * Crie uma fila de mensagens.
+   * Várias threads enviam mensagens para a fila.
+   * Uma thread “servidor” consome e imprime as mensagens.
+
+---
+
+## 🔹 Nível 5 — Agendamento
+
+10. **ScheduledExecutorService** (alarme)
+
+    * Crie uma tarefa que imprime “⏰ Alarme tocando”.
+    * Use `scheduleAtFixedRate` para tocar a cada 5 segundos.
+    * Teste a diferença entre `scheduleAtFixedRate` e `scheduleWithFixedDelay`.
+
+---

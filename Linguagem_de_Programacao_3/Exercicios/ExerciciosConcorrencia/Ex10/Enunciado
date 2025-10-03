@@ -1,0 +1,7 @@
+## 🔹 Nível 5 — Agendamento
+
+10. **ScheduledExecutorService** (alarme)
+
+    * Crie uma tarefa que imprime “⏰ Alarme tocando”.
+    * Use `scheduleAtFixedRate` para tocar a cada 5 segundos.
+    * Teste a diferença entre `scheduleAtFixedRate` e `scheduleWithFixedDelay`.

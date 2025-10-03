@@ -1,0 +1,12 @@
+## 🔹 Nível 3.1 — Synchronized
+
+**Exercício: Contador Seguro**
+
+* Crie uma classe `Contador` com um campo `int valor = 0`.
+* Adicione um método `incrementar()` que **aumenta `valor` em 1**.
+* Faça com que o método seja `synchronized` para que várias threads possam chamar `incrementar()` sem causar conflito.
+* Crie 5 threads, cada uma chamando `incrementar()` 1000 vezes.
+* No final, imprima o valor final do contador — ele deve ser **5000** se a sincronização estiver correta.
+
+---
+

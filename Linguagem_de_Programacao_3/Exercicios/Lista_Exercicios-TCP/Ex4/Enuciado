@@ -1,0 +1,2 @@
+Crie um servidor TCP que gera um número aleatório e desafia os clientes a adivinhá-lo. O 
+servidor fornece dicas sobre se o número é maior ou menor do que a tentativa do cliente. 

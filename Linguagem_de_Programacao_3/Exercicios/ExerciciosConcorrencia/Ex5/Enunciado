@@ -1,0 +1,7 @@
+## 🔹 Nível 3 — Sincronização
+
+5. **Semaphore** (estacionamento)
+
+   * Simule um estacionamento com **3 vagas** (semáforo = 3).
+   * Crie 10 carros (threads).
+   * Cada carro tenta “estacionar” (adquire vaga), espera 2s e depois sai (libera vaga).

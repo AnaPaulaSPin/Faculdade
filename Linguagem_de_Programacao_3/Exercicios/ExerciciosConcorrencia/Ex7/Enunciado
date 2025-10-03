@@ -1,0 +1,7 @@
+## 🔹 Nível 3 — Sincronização
+
+7. **CyclicBarrier** (formar grupo)
+
+   * Crie 4 threads que precisam se reunir antes de começar a trabalhar.
+   * Use `CyclicBarrier(4)` para esperar todos.
+   * Quando o grupo fecha, imprimem: “Todos chegaram, vamos começar!”

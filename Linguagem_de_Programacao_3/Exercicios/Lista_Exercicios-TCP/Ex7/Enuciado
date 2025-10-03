@@ -1,0 +1,2 @@
+Crie um servidor TCP para um jogo de batalha naval. O servidor deve coordenar o 
+movimento do jogador e informar sobre o status do jogo

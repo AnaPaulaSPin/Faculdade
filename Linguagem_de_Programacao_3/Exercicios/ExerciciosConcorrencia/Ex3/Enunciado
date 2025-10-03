@@ -1,0 +1,8 @@
+## 🔹 Nível 2 — Controle de tarefas
+
+3. **Callable + Future**
+
+   * Crie tarefas que retornem a soma de 1 até N.
+   * Submeta várias tarefas e use `Future.get()` para pegar os resultados.
+   * Mostre a diferença entre **tarefa que retorna** e `Runnable`.
+

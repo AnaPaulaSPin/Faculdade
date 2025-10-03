@@ -1,0 +1,3 @@
+Desenvolva um programa que utilize threads para contar o número de palavras em vários 
+arquivos de texto em paralelo. Cada thread pode processar um arquivo diferente e ao 
+final, o programa deve somar o número total de palavras em todos os arquivos.
