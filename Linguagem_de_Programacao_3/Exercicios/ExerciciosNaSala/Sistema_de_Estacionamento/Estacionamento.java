@@ -11,6 +11,9 @@ public class Estacionamento{
     static Semaphore saida = new Semaphore(1);
     static Semaphore prioridade = new Semaphore(2);
     static Semaphore normal = new Semaphore(5);
+    static AtomicInteger qtdPrio = new AtomicInteger(6);
+    static AtomicInteger qtdNormal = new AtomicInteger(14);
+
     public static void main(String[] args) {
         ExecutorService executor = Executors.newCachedThreadPool();
         
@@ -30,11 +33,23 @@ public class Estacionamento{
     }
 
     public static String nome(int tipo){
+    
         
-        if(tipo == 1){
+        if(tipo == 1 && qtdPrio.get() != 0 ){
+            qtdPrio.decrementAndGet();
             return "° Veiculo(Prioritario)";
-        } else{
+
+        } else if( qtdPrio.get() == 0){
+            qtdNormal.decrementAndGet();
             return "° Veiculo(Normal)";
+
+        } else if(tipo != 1 && qtdNormal.get() != 0){
+            qtdNormal.decrementAndGet();
+            return "° Veiculo(Normal)";
+
+        } else{
+            qtdPrio.decrementAndGet();
+            return "° Veiculo(Prioritario)";
         }
     }
 }

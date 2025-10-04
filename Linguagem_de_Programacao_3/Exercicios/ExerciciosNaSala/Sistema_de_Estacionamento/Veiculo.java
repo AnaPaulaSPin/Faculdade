@@ -53,7 +53,7 @@ public class Veiculo {
     public void sair(){
         try {
             saida.acquire();
-            System.out.println( this.getNome() + " está saindo do estacionamento...");
+            System.out.println( this.getNome() + " saiu com sucesso! ");
             saida.release();
         } catch (Exception e) {
             e.printStackTrace();
