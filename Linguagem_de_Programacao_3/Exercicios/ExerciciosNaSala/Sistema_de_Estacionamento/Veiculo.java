@@ -1,4 +1,6 @@
 import java.util.Random;
+import java.util.concurrent.Callable;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
 
 public class Veiculo {
@@ -8,15 +10,19 @@ public class Veiculo {
     Semaphore saida; 
     Semaphore prioridade; 
     Semaphore normal;
+    informacoes info;
+    CountDownLatch terminado;
     
 
-    public Veiculo(int tipo, String nome,Semaphore entrada,Semaphore saida, Semaphore prioridade, Semaphore normal){
+    public Veiculo(int tipo, String nome,Semaphore entrada,Semaphore saida, Semaphore prioridade, Semaphore normal, CountDownLatch terminado){
         this.tipo = tipo;
         this.nome = nome;
         this.prioridade = prioridade;
         this.normal = normal;
         this.saida = saida;
         this.entrada = entrada;
+        this.terminado = terminado;
+        this.info = new informacoes();
 
     }
 
@@ -35,18 +41,23 @@ public class Veiculo {
         try {
             entrada.acquire();
             System.out.println( this.getNome() + "  chegou ao portão de entrada ");
+            info.setEntrada(1);
             this.vaga();
             Random random = new Random();
             int tempo = random.nextInt(5000);
             System.out.println( this.getNome() + " está estacionado por " + tempo);
+            info.setTempo(tempo);
             entrada.release();
 
             this.estacionar(tempo);
             this.sair();
+            terminado.countDown();
 
         } catch (Exception e) {
             e.printStackTrace();
+            info.setEntrada(0);
         }
+
 
     }
 
@@ -54,9 +65,11 @@ public class Veiculo {
         try {
             saida.acquire();
             System.out.println( this.getNome() + " saiu com sucesso! ");
+            info.setSaida(1);
             saida.release();
         } catch (Exception e) {
             e.printStackTrace();
+            info.setSaida(0);
         }
 
 
@@ -86,8 +99,10 @@ public class Veiculo {
 
     }
 
-    public Runnable tarefa = () -> {
+    public Callable<informacoes> tarefa = () -> {
         this.entrar();
+        return info;
+
     };
 
     public int getTipo(){
@@ -100,7 +115,6 @@ public class Veiculo {
 
     public String getNome(){
         return this.nome;
-
     }
 
     public void setNome(String nome){
