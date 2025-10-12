@@ -1,3 +1,2 @@
-Desenvolva um servidor TCP para um sistema de leilão onde os clientes podem fazer 
-lances em itens. O servidor deve coordenar os lances e notificar todos os clientes sobre o 
-status do leilão.
+Desenvolva um servidor TCP para um sistema de leilão onde os clientes podem fazer lances em itens. 
+O servidor deve coordenar os lances e notificar todos os clientes sobre o status do leilão.
