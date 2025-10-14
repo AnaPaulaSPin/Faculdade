@@ -20,8 +20,13 @@ class GerenciadorEstoque {
     }
     
     public int consultarEstoque(String produto) {
+        int resulEstoque = 0;
         // TODO: Implementar consulta com read lock
-        return 0;
+
+        lock.readLock().lock();
+          resulEstoque = estoque.get(produto);
+        lock.readLock().unlock();
+        return resulEstoque;
     }
     
     public boolean reservarEstoque(String produto, int quantidade) {
@@ -30,11 +35,21 @@ class GerenciadorEstoque {
         // 2. Verificar se tem estoque suficiente
         // 3. Decrementar estoque
         // 4. Liberar lock
+        lock.writeLock().lock();
+           int resulEstoque = consultarEstoque(produto);
+         if( resulEstoque != 0 && resulEstoque >= quantidade){
+            estoque.put(produto, (resulEstoque - quantidade) );
+            lock.writeLock().unlock();
+            return true;
+         }
         return false;
     }
     
     public void devolverEstoque(String produto, int quantidade) {
-        // TODO: Implementar devolução com write lock
+        lock.writeLock().lock();
+           int resulEstoque = consultarEstoque(produto);
+            estoque.put(produto, (resulEstoque + quantidade) );
+        lock.writeLock().unlock();
     }
     
     public void exibirEstoque() {
