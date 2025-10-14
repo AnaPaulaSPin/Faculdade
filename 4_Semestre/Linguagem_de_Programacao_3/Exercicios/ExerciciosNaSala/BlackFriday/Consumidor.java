@@ -25,8 +25,8 @@ class Consumidor implements Runnable {
                 
                 // TODO: Remover pedido da fila com timeout (poll com 5 segundos)
                 // Se null, significa que não há mais pedidos, pode encerrar
-               Pedido pedido = fila.poll(5,TimeUnit.SECONDS) ;
-                if(pedido == null){
+               Pedido pedido;
+                if((pedido = fila.poll())== null){
                     System.out.println("[Consumidor-" + id + "] Finalizou processamento");
                     break;
                 } else{
@@ -35,7 +35,6 @@ class Consumidor implements Runnable {
                     processarPedido(pedido);
                 }
             }
-
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             System.out.println("[Consumidor-" + id + "] Finalizou processamento");

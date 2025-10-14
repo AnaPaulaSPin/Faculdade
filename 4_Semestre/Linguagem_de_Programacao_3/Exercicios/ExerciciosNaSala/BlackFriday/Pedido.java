@@ -24,7 +24,8 @@ class Pedido implements Comparable<Pedido> {
     @Override
     public int compareTo(Pedido outro) {
         // Implementar comparação
-        return 0;
+        // quanto MENOR o número retornado, MAIOR a prioridade
+        return this.prioridade.compareTo(outro.prioridade);
     }
     
     // Getters
