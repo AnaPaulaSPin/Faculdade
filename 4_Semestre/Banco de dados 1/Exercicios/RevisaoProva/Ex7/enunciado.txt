@@ -1,0 +1,16 @@
+### 🏥 **Exercício 7 — Hospital**
+
+Um hospital deseja controlar **internações** de pacientes.
+
+- Cada **paciente** tem código, nome, CPF, endereço e telefone.
+- Cada **médico** tem CRM, nome, especialidade e data de admissão.
+- Cada **enfermaria** tem número, andar e capacidade.
+- Cada **internação** está associada a **um paciente**, **um médico responsável** e **uma enfermaria**.
+- Em cada internação, registra-se data de entrada, data de alta e diagnóstico.
+- Um paciente pode ter várias internações, e um médico pode ser responsável por várias internações.
+
+🎯 **Tarefa:**
+
+Monte o modelo lógico com as tabelas e relacionamentos, identificando as cardinalidades corretamente.
+
+---
