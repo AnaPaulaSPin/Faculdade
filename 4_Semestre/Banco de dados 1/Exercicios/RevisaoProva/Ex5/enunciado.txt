@@ -1,0 +1,16 @@
+### 🧰 **Exercício 5 — Oficina Mecânica**
+
+Uma oficina precisa de um banco de dados para gerenciar os **serviços** realizados em **veículos**.
+
+- Cada **veículo** tem um código único, placa, modelo, ano e cor.
+- Cada veículo pertence a **um cliente**, identificado por CPF, nome, endereço e telefone.
+- Um **serviço** tem código, nome e preço-base.
+- Cada **ordem de serviço (OS)** é aberta para um veículo e contém:
+    - data de abertura, data de conclusão, valor total e status.
+- Uma OS pode incluir **vários serviços**, e um mesmo serviço pode aparecer em várias OS.
+- Cada serviço realizado em uma OS é feito por um **mecânico**.
+- Um mecânico tem matrícula, nome, data de contratação e especialidade.
+
+🎯 **Tarefa:**
+
+Monte o **modelo lógico relacional** com tabelas, chaves primárias e estrangeiras, e as relações necessárias (inclusive N:N se existirem).
