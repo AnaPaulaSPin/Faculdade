@@ -1,0 +1,14 @@
+### 🏫 **Exercício 6 — Sistema Acadêmico**
+
+Um sistema acadêmico deve armazenar as informações de **disciplinas, alunos e professores**.
+
+- Cada **aluno** tem matrícula, nome, data de nascimento e curso.
+- Cada **professor** tem matrícula, nome e titulação.
+- Cada **disciplina** tem código, nome e carga horária.
+- Cada disciplina é **ministrada por um professor**.
+- Os alunos **matriculam-se** em várias disciplinas, e cada disciplina pode ter vários alunos.
+- Para cada matrícula, deve-se registrar **ano, semestre e nota final**.
+
+🎯 **Tarefa:**
+
+Crie o modelo lógico com tabelas, PK e FK, mostrando claramente a entidade associativa (matrícula).
