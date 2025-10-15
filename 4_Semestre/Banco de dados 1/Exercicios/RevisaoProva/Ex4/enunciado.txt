@@ -1,0 +1,12 @@
+### 🧾 **Exercício 4 — Comércio eletrônico**
+
+Um sistema precisa armazenar informações sobre **pedidos**.
+
+- Cada **cliente** tem CPF, nome, e-mail e telefone.
+- Cada **pedido** possui número, data e valor total.
+- Um cliente pode fazer vários pedidos.
+- Cada pedido contém **vários produtos**, e cada produto pode estar em vários pedidos.
+- Cada produto tem código, nome e preço.
+- O relacionamento entre pedido e produto também deve armazenar a **quantidade** de cada item.
+
+🎯 **Tarefa:** crie o modelo lógico completo com as tabelas e atributos.
