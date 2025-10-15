@@ -1,0 +1,10 @@
+### 🚗 **Exercício 2 — Locadora de veículos**
+
+Uma locadora deseja controlar os carros alugados.
+
+- Cada **carro** tem placa (única), modelo, ano e categoria.
+- Cada **cliente** tem CPF, nome, telefone e endereço.
+- Um cliente pode realizar vários **alugueis**, mas cada aluguel é de **um único carro por vez**.
+- Cada aluguel possui data de início, data de devolução e valor diário.
+
+🎯 **Tarefa:** faça o modelo lógico com as tabelas, PK e FK, representando todos os relacionamentos.
