@@ -1,0 +1,13 @@
+# 🧮 **Exercício 1 — Clínica veterinária**
+
+Crie o **modelo lógico relacional** (as tabelas com PK e FK) para o seguinte caso:
+
+Uma clínica precisa controlar **consultas e vacinas** dos animais.
+
+- Cada **animal** é identificado por um código e tem nome, espécie, raça e data de nascimento.
+- Cada animal pertence a **um único dono**, identificado por CPF, nome, endereço e telefone.
+- Cada **consulta** tem data, horário, valor e é realizada por um **veterinário**, que tem matrícula, nome e especialidade.
+- Uma consulta pode gerar **várias vacinas aplicadas**, e cada vacina tem nome e fabricante.
+- Cada vacina pode ser aplicada em várias consultas.
+
+🎯 **Tarefa:** monte o modelo lógico com todas as tabelas, chaves primárias e estrangeiras (pode desenhar ou escrever como CREATE TABLE simplificado).
