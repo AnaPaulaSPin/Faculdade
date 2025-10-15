@@ -1,0 +1,10 @@
+### 📚 **Exercício 3 — Biblioteca**
+
+A biblioteca da sua faculdade precisa de um BD para gerenciar empréstimos.
+
+- Cada **livro** tem ISBN, título, ano e editora.
+- Cada livro pode ter **vários autores**, e cada autor pode escrever **vários livros**.
+- Cada **aluno** tem matrícula, nome e curso.
+- Um aluno pode fazer vários **empréstimos**, e cada empréstimo é de **um livro específico**, com data de empréstimo e data de devolução.
+
+🎯 **Tarefa:** monte o modelo lógico com as tabelas e relações.
