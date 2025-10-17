@@ -25,8 +25,8 @@ class Consumidor implements Runnable {
                 
                 // TODO: Remover pedido da fila com timeout (poll com 5 segundos)
                 // Se null, significa que não há mais pedidos, pode encerrar
-               Pedido pedido;
-                if((pedido = fila.poll())== null){
+                Pedido pedido = fila.poll();
+                if(pedido == null){
                     System.out.println("[Consumidor-" + id + "] Finalizou processamento");
                     break;
                 } else{
@@ -40,6 +40,7 @@ class Consumidor implements Runnable {
             System.out.println("[Consumidor-" + id + "] Finalizou processamento");
             
         } finally{
+            System.out.println("[Consumidor-" + id + "] diminuiu o latch");
             latch.countDown();
         }
     }

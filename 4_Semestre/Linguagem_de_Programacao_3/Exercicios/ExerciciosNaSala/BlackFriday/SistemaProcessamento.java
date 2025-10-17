@@ -41,6 +41,7 @@ public class SistemaProcessamento {
 
         // TODO: Aguardar produtores finalizarem
         latch.await();
+        
 
         CountDownLatch latch2 = new CountDownLatch(5);
 
