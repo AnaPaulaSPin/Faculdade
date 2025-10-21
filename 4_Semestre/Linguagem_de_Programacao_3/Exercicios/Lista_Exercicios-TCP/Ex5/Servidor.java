@@ -1,61 +1,46 @@
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.List;
-import java.util.Scanner;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Servidor{
     private static List<PrintWriter> clients = new CopyOnWriteArrayList<>();
-    static Scanner sc = new Scanner(System.in);
     static ExecutorService executor = Executors.newCachedThreadPool();
+    static AtomicInteger vencedor = new AtomicInteger();
+    static Lance lanceAtual = new Lance(null, 0, 0);
     public static void main(String[] args) {
         try {
             ServerSocket leilao = new ServerSocket(1234);
-            int vencedor = 0;
-            int lanceAtual = 0;
+            ServerSocket comuniSocket = new ServerSocket(3454);
 
-            while(vencedor != 0 ){
+            System.out.println("Leilão ativo!");
+
+            while(vencedor.get() == 0 ){
+                Socket comuniSocket2 = comuniSocket.accept();
                 Socket cliente = leilao.accept();
-                 // Instrumentos para enviar ou receber TEXTO
-                PrintWriter enviarUser = new PrintWriter(cliente.getOutputStream(), true);
-               ObjectOutputStream enviarUserObject = new ObjectOutputStream(cliente.getOutputStream());
-               ObjectInputStream receberUser = new ObjectInputStream(cliente.getInputStream());
-                
-                clients.add(enviarUser);
-
-                int lanceProx = receberUser.readInt();
-
-                if(lanceAtual < lanceProx){
-                    lanceAtual = lanceProx;
-                }
-
-                broadcast("Da-lhe uma");
-                broadcast("Da-lhe duas");
-                broadcast("Da-lhe tres");
-
-                vencedor = lanceAtual;
-
-                broadcast("Temos um vencedor!! Lance numero: " + vencedor);
-
+                executor.submit(new SistemaLance(lanceAtual,cliente,clients,vencedor,comuniSocket2));
             }
+
             leilao.close();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+  }
 
-    public static void broadcast(String msg){
+  public static void broadcast(String msg){
         for(PrintWriter user: clients){
-            user.print(msg);
+            try {
+                user.print(msg);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
-
-    
+ 
 }
