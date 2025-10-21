@@ -25,14 +25,18 @@ class Consumidor implements Runnable {
                 
                 // TODO: Remover pedido da fila com timeout (poll com 5 segundos)
                 // Se null, significa que não há mais pedidos, pode encerrar
-                Pedido pedido = fila.poll();
+                Pedido pedido = fila.poll(5,TimeUnit.SECONDS);
                 if(pedido == null){
                     System.out.println("[Consumidor-" + id + "] Finalizou processamento");
                     break;
                 } else{
                     // TODO: Processar pedido
                     // TODO: Se null, break do loop
+                    if(pedido == null){
+                        break;
+                    }
                     processarPedido(pedido);
+                    
                 }
             }
         } catch (InterruptedException e) {
@@ -40,13 +44,12 @@ class Consumidor implements Runnable {
             System.out.println("[Consumidor-" + id + "] Finalizou processamento");
             
         } finally{
-            System.out.println("[Consumidor-" + id + "] diminuiu o latch");
             latch.countDown();
         }
     }
     
     private void processarPedido(Pedido pedido) throws InterruptedException {
-        System.out.println("[Consumidor-" + id + "] Processando: Pedido#" + pedido.getId() + " [" + pedido.getPrioridade().name()+"] " + pedido.getCliente() + "-" + pedido.getProduto() + "x" + pedido.getQuantidade() + "("+ pedido.getTimestamp() + ")");
+    System.out.println("[Consumidor-" + id + "] Processando: Pedido#" + pedido.getId() + " [" + pedido.getPrioridade().name()+"] " + pedido.getCliente() + " - " + pedido.getProduto() + " x" + pedido.getQuantidade() + " ("+ pedido.getTimestamp() + ")");
 
         // TODO: Implementar processamento
         // 1. Verificar estoque

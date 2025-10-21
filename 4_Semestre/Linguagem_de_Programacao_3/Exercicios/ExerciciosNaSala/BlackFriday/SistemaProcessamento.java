@@ -63,6 +63,7 @@ public class SistemaProcessamento {
         
         // TODO: Parar monitor
         monitor.parar();
+        principal.shutdown();
         
         // TODO: Exibir relatório final
         stats.exibirRelatorioFinal();
@@ -74,6 +75,5 @@ public class SistemaProcessamento {
         System.out.println("\nSistema finalizado com sucesso!");
         consumidores.shutdown();
         produtores.shutdown();
-        principal.shutdown();
     }
 }

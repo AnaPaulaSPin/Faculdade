@@ -36,13 +36,16 @@ class GerenciadorEstoque {
         // 3. Decrementar estoque
         // 4. Liberar lock
         lock.writeLock().lock();
-           int resulEstoque = consultarEstoque(produto);
-         if( resulEstoque != 0 && resulEstoque >= quantidade){
-            estoque.put(produto, (resulEstoque - quantidade) );
-            lock.writeLock().unlock();
-            return true;
-         }
-        return false;
+           try{
+            int resulEstoque = consultarEstoque(produto);
+           if( resulEstoque != 0 && resulEstoque >= quantidade){
+             estoque.put(produto, (resulEstoque - quantidade) );
+             return true;
+           }
+          return false;
+            }finally{
+                lock.writeLock().unlock();
+            }
     }
     
     public void devolverEstoque(String produto, int quantidade) {

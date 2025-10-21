@@ -38,6 +38,42 @@ class GerenciadorEstatisticas {
         System.out.println("\n╔════════════════════════════════════════╗");
         System.out.println("║          RELATÓRIO FINAL               ║");
         System.out.println("╚════════════════════════════════════════╝");
-        // TODO: Completar
+        System.out.println("╠ Total gerado           :  "+ pedidosGerados.get() + "           ║");
+        System.out.println("║Processados com sucesso:  " + pedidosProcessados.get() + "            ║" );
+        System.out.println("║ Rejeitados (sem estoque):  " + pedidosRejeitados.get()+ "          ║");
+        System.out.println("╠════════════════════════════════════════╣ ");
+
+        float taxasucesso = TaxaSucesso();
+        System.out.printf("║ Taxa de sucesso        : %.2f         ║\n", taxasucesso);
+
+        float taxamedia = TaxaMedia(tempoTotal);
+        System.out.printf("║ Taxa média:              %.2f          ║\n", taxamedia);
+        System.out.println("║ Tempo total execução   : " + tempoTotal+"          ║");
+        System.out.println("╠════════════════════════════════════════╣ ");
+        if(pedidosRejeitados.get() + pedidosProcessados.get() == pedidosGerados.get() ){
+             System.out.println("║ VALIDAÇÃO: Todos os pedidos            ║ \n║    foram processados corretamente!     ║ " );
+
+        }else{
+             System.out.println("║ VALIDAÇÃO: Todos os pedidos             ║ \n║    nao conseguiram ser processados corretamente!  ║" );
+        }
+
+
+        System.out.println("╚════════════════════════════════════════╝");
+    }
+
+    public float TaxaSucesso(){
+        float pedidos = pedidosProcessados.get();
+        float pedidosG = pedidosGerados.get();
+        float total = (pedidos / pedidosG) * 100;
+
+        return total;
+    
+    }
+
+    public float TaxaMedia(long tempoTotal){
+        float pedidosProcess = pedidosProcessados.get();
+        float total = (pedidosProcess / tempoTotal)* 100;
+        return total;
+
     }
 }
