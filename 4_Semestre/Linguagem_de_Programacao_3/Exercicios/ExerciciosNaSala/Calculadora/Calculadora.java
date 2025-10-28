@@ -2,9 +2,9 @@ public class Calculadora {
     private int op1;
     private int op2;
     private String sinal;
-    private String[] sinais = {"+","-","*","/","%"};
+    String[] sinais = {"+","-","*","/","%"};
 
-    public boolean verificarSinal(){
+    public boolean verificarSinal(String sinal){
         for(String sin: sinais){
             if(sin.equals(sinal)){
                 return true;
@@ -26,5 +26,29 @@ public class Calculadora {
         } else {
             return op1 % op2;
         }
+    }
+
+    public void setOp1(int op){
+        this.op1 = op;
+    }
+
+    public int getOp1(){
+        return this.op1;
+    }
+
+    public void setOp2(int op){
+        this.op1 = op;
+    }
+
+    public int getOp2(){
+        return this.op2;
+    }
+
+    public void setSinal(String sinal){
+        this.sinal = sinal;
+    }
+
+    public String getSinal(){
+        return this.sinal;
     }
 }
