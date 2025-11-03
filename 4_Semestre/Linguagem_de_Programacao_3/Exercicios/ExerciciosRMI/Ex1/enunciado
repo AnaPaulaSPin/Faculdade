@@ -1,0 +1,16 @@
+# **Exercício Resumido de RMI com Concorrência**
+
+## **Servidor**
+
+* Implementa uma interface remota `ContadorRMI` com o método `registrarVisita(String nome)`.
+* Mantém um contador de visitas **thread-safe** (`AtomicInteger` ou `synchronized`).
+* Registra o objeto no **RMI Registry** na porta 1099.
+
+---
+
+## **Cliente**
+
+* Solicita o nome do usuário (Scanner ou JOptionPane).
+* Chama o método remoto `registrarVisita(nome)` do servidor.
+* Exibe: `"Olá, [nome]! Você é a visita número [contador]."`
+

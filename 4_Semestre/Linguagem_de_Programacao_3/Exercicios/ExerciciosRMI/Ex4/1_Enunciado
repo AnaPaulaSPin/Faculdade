@@ -1,0 +1,13 @@
+## 🔹 Nível Difícil
+
+1. **Chat RMI**
+
+   * Servidor mantém lista de clientes conectados.
+   * Cada cliente pode enviar mensagens que são retransmitidas a todos.
+   * Use `CopyOnWriteArrayList` ou `synchronized` para proteger a lista de clientes.
+   * Inclua método para remover cliente que sair.
+
+
+
+---
+

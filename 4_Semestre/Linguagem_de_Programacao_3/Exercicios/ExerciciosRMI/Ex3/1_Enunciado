@@ -1,0 +1,8 @@
+## 🔹 Nível Médio
+
+2. **Banco simples com concorrência**
+
+   * Servidor mantém um saldo (`int` ou `AtomicInteger`).
+   * Clientes podem chamar `depositar(int valor)` e `consultarSaldo()`.
+   * Garanta que múltiplos clientes não causem condição de corrida.
+

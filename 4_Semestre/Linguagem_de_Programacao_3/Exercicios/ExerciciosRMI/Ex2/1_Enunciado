@@ -1,0 +1,11 @@
+# **Atividades RMI e Concorrência**
+
+## 🔹 Nível Médio
+
+1. **Registro de mensagens**
+
+   * Servidor mantém uma lista de mensagens (`List<String>`) de todos os clientes.
+   * Método remoto `enviarMensagem(String nome, String msg)` adiciona a mensagem e retorna a lista completa.
+   * Teste com dois ou mais clientes concorrentes.
+   * Proteja a lista usando `synchronized` ou `CopyOnWriteArrayList`.
+

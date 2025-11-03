@@ -1,0 +1,7 @@
+
+
+3. **Callable + Executor + RMI**
+
+   * Servidor expõe um método remoto que executa uma tarefa longa e retorna resultado.
+   * Cliente envia a tarefa e recebe um `Future` para pegar o resultado.
+   * Teste com múltiplos clientes enviando tarefas simultâneas.

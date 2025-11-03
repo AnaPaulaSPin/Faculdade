@@ -1,0 +1,9 @@
+
+
+
+2. **Estacionamento simulado**
+
+   * Servidor controla vagas com `AtomicInteger` ou `Semaphore`.
+   * Cada cliente “entra” e “sai” do estacionamento, alterando o número de vagas disponíveis.
+   * Mostre status de vagas em tempo real para todos os clientes.
+   * Teste concorrência com vários clientes entrando e saindo.
