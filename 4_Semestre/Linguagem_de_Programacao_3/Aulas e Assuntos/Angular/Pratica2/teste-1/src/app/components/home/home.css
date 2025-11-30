@@ -1,0 +1,16 @@
+/* global styles */
+html, body { height: 100%; margin: 0; }
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: rgb(216, 241, 229);
+}
+
+/* Centraliza só o conteúdo da Home */
+.home-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* deixa h1 em cima, link embaixo */
+  justify-content: center;
+  align-items: center;
+}
