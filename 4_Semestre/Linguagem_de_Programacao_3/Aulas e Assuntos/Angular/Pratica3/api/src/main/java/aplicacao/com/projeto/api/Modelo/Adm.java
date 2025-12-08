@@ -3,8 +3,8 @@ package aplicacao.com.projeto.api.Modelo;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "cliente")
-public class Cliente {
+@Table(name = "adm")
+public class Adm {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
