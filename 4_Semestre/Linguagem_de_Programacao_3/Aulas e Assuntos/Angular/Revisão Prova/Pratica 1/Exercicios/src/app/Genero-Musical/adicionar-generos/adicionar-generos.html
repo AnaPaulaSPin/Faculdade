@@ -1,0 +1,50 @@
+
+<div class="center">
+  <div class="example-button-row">
+    <h2> O que você gostaria de fazer hj? </h2>
+    <button matButton="outlined"(click)="AtivarCadastrar()">Cadastrar</button>
+    <button matButton="outlined" (click)="AtivarDeletar()" >Apagar</button>
+    <button matButton="outlined"(click)="AtivarListar()">Listar</button>
+
+  </div>
+</div>
+
+<div class="center1" *ngIf="aparecerdeletar">
+  <mat-form-field >
+  <mat-label>Select</mat-label>
+  <mat-select [(value)] = "selecionado">
+    <mat-option *ngFor="let item of generos" [value]="item.id"> {{item.nome}} </mat-option>
+  </mat-select>
+</mat-form-field>
+<br>
+<button matButton="filled" (click)="Deletar()">Deletar</button>
+</div>
+
+<div class="center1" *ngIf="aparecerListar">
+<mat-list role="list" *ngFor="let item of generos">
+  <mat-list-item role="listitem" >{{item.nome}} | {{item.artistas}}</mat-list-item>
+</mat-list>
+
+</div>
+
+<br>
+
+<div class="center1" *ngIf="aparecerCadastrar">
+
+<form [formGroup]="form">
+  <br>
+<mat-form-field >
+  <mat-label>Nome do genero:</mat-label>
+  <input matInput formControlName="nome">
+</mat-form-field>
+
+<br>
+
+<mat-form-field>
+  <mat-label>Artistas:</mat-label>
+  <input matInput formControlName="artistas">
+</mat-form-field>
+<br>
+<button matButton="filled" (click)="Cadastrar()">Salvar</button>
+</form>
+</div>
