@@ -1,0 +1,90 @@
+<mat-card *ngIf="showForm">
+  <mat-toolbar color="primary">Adicionar/Editar Produtos</mat-toolbar>
+
+  <!-- Implemente o formulario para adicionar e Editar produtos -->
+   <form class="example-form" [formGroup]="productForm">
+  <mat-form-field class="example-full-width">
+    <mat-label>Titulo do produto:</mat-label>
+    <input matInput formControlName="title" placeholder="Ex. Pizza" value="produto" >
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Preco:</mat-label>
+    <textarea matInput formControlName="price" placeholder="Ex. It makes me feel..."></textarea>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Categoria:</mat-label>
+    <input matInput formControlName="category" placeholder="Ex. Pizza" value="categoria">
+  </mat-form-field>
+
+  <button matButton="outlined" (click)="addProduct()">Enviar</button>
+</form>
+
+</mat-card>
+
+<mat-card>
+  <div class="filter-sort-container">
+    <!-- Implemente o a filtragem de produtos  -->
+     <!-- Campo para buscar produto -->
+  <mat-form-field appearance="outline" class="campo-busca">
+    <mat-label>Minimo</mat-label>
+    <input matInput placeholder="Digite o nome do produto" [(ngModel)]="minPrice">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="campo-busca">
+    <mat-label>Maximo</mat-label>
+    <input matInput placeholder="Digite o nome do produto" [(ngModel)]="maxPrice">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+  </div>
+  <button matButton="outlined" (click)="filterProducts()">Enviar</button>
+</mat-card>
+
+<button mat-stroked-button (click)="sortProducts('cresc')">Ordem Crescente</button>
+<button mat-stroked-button (click)="sortProducts('desc')">Ordem Decrescente</button>
+
+
+
+
+<mat-card>
+  <mat-toolbar color="primary">Produtos Disponíveis</mat-toolbar>
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{ product.title }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef> Preço </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{ product.price | currency }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+      <mat-header-cell *matHeaderCellDef> Categoria </mat-header-cell>
+      <mat-cell *matCellDef="let product"> {{ product.category }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef class="action-column-header">
+        <button mat-mini-fab color="accent" aria-label="Adicionar um produto" (click)="toggleForm()">
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let product">
+        <button mat-fab color="primary" (click)="editProduct(product)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-fab color="warn" (click)="removeProduct(product)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
+</mat-card>
+

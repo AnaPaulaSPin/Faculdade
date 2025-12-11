@@ -1,0 +1,14 @@
+.filter-sort-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sort-field {
+  flex: 0 0 30%; /* 30% de largura */
+  margin-right: 10px;
+}
+
+.filter-card {
+  flex: 0 0 70%; /* 70% de largura */
+}
