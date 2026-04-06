@@ -1,18 +1,32 @@
 import socket
+import json
 from urllib.parse import urlparse, parse_qs
 
 HOST = '127.0.0.1'
 PORT = 8080
 
+# ========================
+# carregar dados do JSON
+# ========================
+def carregar_dados():
+    try:
+        with open("dados.json", "r") as f:
+            return json.load(f)
+    except:
+        return []
+
+# ========================
+# salvar dados no JSON
+# ========================
+def salvar_dados(dados):
+    with open("dados.json", "w") as f:
+        json.dump(dados, f, indent=4)
+
+dados = carregar_dados()
+
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((HOST, PORT))
 server.listen(1)
-
-dados = [
-    {"id": "1", "nome": "Ana", "idade": "20"},
-    {"id": "2", "nome": "Carlos", "idade": "25"},
-    {"id": "3", "nome": "Maria", "idade": "30"}
-]
 
 print(f"Servidor rodando em http://{HOST}:{PORT}")
 
@@ -23,7 +37,6 @@ while True:
     request = client.recv(4096).decode()
     print(request)
 
-    # separa header e body
     parts = request.split("\r\n\r\n")
     header = parts[0]
     body = parts[1] if len(parts) > 1 else ""
@@ -37,7 +50,6 @@ while True:
         parsed = urlparse(path)
         params = parse_qs(parsed.query)
 
-        # Lógica de busca
         resultado_html = ""
 
         if "id" in params:
@@ -58,110 +70,114 @@ while True:
                 </div>
                 """
             else:
-                resultado_html = """
-                <div class="result error">
-                    <p>Nenhum resultado encontrado</p>
-                </div>
-                """
+                resultado_html = "<p> Nao encontrado</p>"
         else:
-            resultado_html = """
-            <div class="result info">
-                <p>Digite um ID para buscar (ex: ?id=1)</p>
-            </div>
-            """
+            resultado_html = "<p>Use ?id=1</p>"
 
-        #  HTML
         response_body = f"""
-        <html>
-        <head>
-            <title>Busca de Usuarios</title>
-            <style>
-                body {{
-                    font-family: Arial, sans-serif;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 100vh;
-                    margin: 0;
-                }}
+<html>
+<head>
+    <title>Sistema de Usuários</title>
+    <style>
+        body {{
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }}
 
-                .container {{
-                    background: white;
-                    padding: 30px;
-                    border-radius: 12px;
-                    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-                    width: 350px;
-                    text-align: center;
-                }}
+        .container {{
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            width: 380px;
+            text-align: center;
+        }}
 
-                h1 {{
-                    color: #333;
-                }}
+        h1 {{
+            margin-bottom: 5px;
+        }}
 
-                input {{
-                    width: 100%;
-                    padding: 8px;
-                    margin: 10px 0;
-                    border-radius: 6px;
-                    border: 1px solid #ccc;
-                }}
+        h2 {{
+            margin-top: 25px;
+            font-size: 18px;
+            color: #555;
+        }}
 
-                button {{
-                    width: 100%;
-                    padding: 10px;
-                    background: #6c63ff;
-                    color: white;
-                    border: none;
-                    border-radius: 6px;
-                    cursor: pointer;
-                }}
+        input {{
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }}
 
-                .result {{
-                    margin-top: 15px;
-                    padding: 10px;
-                    border-radius: 6px;
-                    text-align: left;
-                }}
+        button {{
+            width: 100%;
+            padding: 10px;
+            background: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+        }}
 
-                .success {{
-                    background: #e6f4ea;
-                    border-left: 4px solid #28a745;
-                }}
+        button:hover {{
+            background: #574fd6;
+        }}
 
-                .error {{
-                    background: #fdecea;
-                    border-left: 4px solid #dc3545;
-                }}
+        .result {{
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 14px;
+        }}
 
-                .info {{
-                    background: #e7f3ff;
-                    border-left: 4px solid #007bff;
-                }}
-            </style>
-        </head>
+        .success {{
+            background: #e6f4ea;
+            border-left: 5px solid #28a745;
+        }}
 
-        <body>
-            <div class="container">
-                <h1>Buscar Usuario</h1>
+        .error {{
+            background: #fdecea;
+            border-left: 5px solid #dc3545;
+        }}
 
-                {resultado_html}
+        .info {{
+            background: #e7f3ff;
+            border-left: 5px solid #007bff;
+        }}
+    </style>
+</head>
 
-                <form method="GET">
-                    <input name="id" placeholder="Digite o ID (ex: 1)">
-                    <button type="submit">Buscar</button>
-                </form>
+<body>
+    <div class="container">
+        <h1> Sistema</h1>
+        <p>Buscar usuario por ID</p>
 
-                <h2>Adicionar (POST)</h2>
+        {resultado_html}
 
-                <form method="POST">
-                    <input name="nome" placeholder="Nome">
-                    <input name="idade" placeholder="Idade">
-                    <button type="submit">Cadastrar</button>
-                </form>
-            </div>
-        </body>
-        </html>
-        """
+        <form method="GET">
+            <input name="id" placeholder="Digite o ID (ex: 1)">
+            <button>Buscar</button>
+        </form>
+
+        <h2>Cadastrar novo usuario</h2>
+
+        <form method="POST">
+            <input name="nome" placeholder="Nome">
+            <input name="idade" placeholder="Idade">
+            <button>Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>
+"""
 
     # ========================
     # 🔹 POST
@@ -169,31 +185,79 @@ while True:
     elif method == "POST":
         params = parse_qs(body)
 
-        nome = params.get("nome", ["Não informado"])[0]
-        idade = params.get("idade", ["Não informado"])[0]
+        nome = params.get("nome", [""])[0]
+        idade = params.get("idade", [""])[0]
 
-        # gerar novo ID
         novo_id = str(len(dados) + 1)
 
-    # adicionar na lista
-        dados.append({
-        "id": novo_id,
-        "nome": nome,
-        "idade": idade
-         })
+        novo_usuario = {
+            "id": novo_id,
+            "nome": nome,
+            "idade": idade
+        }
+
+        dados.append(novo_usuario)
+
+        # salva no arquivo
+        salvar_dados(dados)
 
         response_body = f"""
-        <html>
-        <body style="font-family: Arial; display:flex; justify-content:center; align-items:center; height:100vh;">
-            <div style="background:white; padding:30px; border-radius:10px;">
-                <h1>POST recebido</h1>
-                <p><strong>Nome:</strong> {nome}</p>
-                <p><strong>Idade:</strong> {idade}</p>
-                <a href="/">Voltar</a>
-            </div>
-        </body>
-        </html>
-        """
+<html>
+<head>
+    <style>
+        body {{
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }}
+
+        .card {{
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            width: 350px;
+        }}
+
+        h1 {{
+            color: #333;
+        }}
+
+        p {{
+            margin: 10px 0;
+        }}
+
+        a {{
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background: #6c63ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }}
+
+        a:hover {{
+            background: #574fd6;
+        }}
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1> Usuario cadastrado</h1>
+        <p><strong>Nome:</strong> {nome}</p>
+        <p><strong>Idade:</strong> {idade}</p>
+
+        <a href="/">Voltar</a>
+    </div>
+</body>
+</html>
+"""
 
     else:
         response_body = "<h1>Método nao suportado</h1>"
