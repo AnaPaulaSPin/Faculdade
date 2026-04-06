@@ -83,7 +83,7 @@ while True:
         response_body = f"""
 <html>
 <head>
-    <title>Sistema de Usuários</title>
+    <title>Sistema de Usuarios</title>
     <style>
         body {{
             font-family: Arial, sans-serif;
