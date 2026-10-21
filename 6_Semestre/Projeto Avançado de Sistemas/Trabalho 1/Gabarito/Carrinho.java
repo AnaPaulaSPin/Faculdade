@@ -44,11 +44,10 @@ public class Carrinho {
 
     public Snapshot capturarSnapshot() {
         // TODO: Crie e retorne um Snapshot contendo uma cópia dos itens atuais do carrinho.
-        return new Snapshot(new ArrayList<>(itens));
+        return null;
     }
 
     public void restaurarEstado(Snapshot snapshot) {
-        // TODO: Substitua os itens atuais do carrinho pelos itens armazenados no Snapshot recebido.
-        this.itens = snapshot.getItensCapturados();
+        // TODO: Substitua os itens atuais do carrinho pelos itens armazenados no Snapshot recebido.;
     }
 }
